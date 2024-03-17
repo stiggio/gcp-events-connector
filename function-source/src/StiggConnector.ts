@@ -1,19 +1,19 @@
-const { default: Stigg} = require('@stigg/node-server-sdk');
-const { chunk } = require('lodash');
+import Stigg from '@stigg/node-server-sdk';
+import { chunk } from 'lodash';
+import { ReportEvent } from '@stigg/node-server-sdk/dist/models';
 
-class StiggConnector {
+export class StiggConnector {
 
-  stigg = Stigg.initialize({
+  private readonly stigg = Stigg.initialize({
     apiKey: process.env.STIGG_API_KEY,
     baseUri: process.env.STIGG_BASE_URI,
     realtimeUpdatesEnabled: false,
   });
 
-  buffer = [];
-  nextTick;
+  private readonly buffer: ReportEvent[] = [];
+  private nextTick: NodeJS.Timeout | null = null;
 
-  addEvent(event) {
-    console.log('Adding event to buffer')
+  addEvent(event: ReportEvent) {
     this.buffer.push(event);
     this.setNextTick();
   }
@@ -46,5 +46,3 @@ class StiggConnector {
     this.setNextTick();
   }
 }
-
-module.exports = StiggConnector;

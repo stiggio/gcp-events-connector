@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist/",
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "module": "commonjs",
+  }
+}

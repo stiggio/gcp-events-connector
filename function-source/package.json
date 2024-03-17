@@ -1,9 +1,17 @@
 {
-  "main": "src/index.js",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "gcp-build": "npm run build"
+  },
   "dependencies": {
     "@google-cloud/functions-framework": "^3.0.0",
     "@google-cloud/pubsub": "^3.0.0",
     "@stigg/node-server-sdk": "^3.10.0",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@google/events": "^5.4.0",
+    "typescript": "^5.4.2"
   }
 }

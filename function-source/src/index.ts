@@ -1,11 +1,12 @@
-const StiggConnector = require('./StiggConnector');
-const functions = require('@google-cloud/functions-framework');
+import { CloudEvent, cloudEvent } from '@google-cloud/functions-framework';
+import { MessagePublishedData } from '@google/events/cloud/pubsub/v1/MessagePublishedData';
+import { StiggConnector} from './StiggConnector';
 
 const stiggConnector = new StiggConnector();
 
 // Register a CloudEvent callback with the Functions Framework that will
 // be executed when the Pub/Sub trigger topic receives a message.
-functions.cloudEvent('EventForwarder', cloudEvent => {
+cloudEvent('EventForwarder', (cloudEvent: CloudEvent<MessagePublishedData>) => {
   // The Pub/Sub message is passed as the CloudEvent's data payload.
   const base64data = cloudEvent.data.message.data;
 
