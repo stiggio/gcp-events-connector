@@ -25,7 +25,7 @@ resource "google_storage_bucket" "default" {
 data "archive_file" "function-source" {
   type        = "zip"
   output_path = "/tmp/function-source.zip"
-  source_dir  = "function-source/"
+  source_dir  = "../function-source/"
   excludes = ["node_modules", ]
 }
 

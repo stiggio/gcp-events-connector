@@ -1,10 +1,10 @@
 .idea/
 .vscode/
 
-.terraform/
-.tfvars
-terraform.tfstate
-terraform.tfstate.backup
+terraform/.terraform/
+terraform/.tfvars
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
 
 function-source/dist/
 function-source/node_modules/
