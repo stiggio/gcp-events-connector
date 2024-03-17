@@ -1,0 +1,8 @@
+.idea/
+.vscode/
+.terraform/
+function-source/node_modules/
+.tfvars
+terraform.tfstate
+terraform.tfstate.backup
+```
