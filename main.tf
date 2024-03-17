@@ -8,9 +8,13 @@ terraform {
 }
 
 provider "google" {
-  project     = "usage-shipper-demo"
-  region      = "us-central1"
-  zone        = "us-central1-c"
+  project     = var.gcp_project
+  region      = var.gcp_location
+}
+
+variable "gcp_project" {
+  description = "The GCP project to deploy the function to"
+  type        = string
 }
 
 variable "gcp_location" {
