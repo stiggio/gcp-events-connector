@@ -35,7 +35,7 @@ export class StiggConnector {
     console.log(`Flushing ${events.length} events`);
     for (const aChunk of chunk(events, 1000)) {
       try {
-        await this.stigg.reportEvent(events);
+        await this.stigg.reportEvent(aChunk);
       } catch (err) {
         console.warn('Failed to send chunk of events (re-adding them to buffer)', err);
         this.buffer.push(...aChunk);
